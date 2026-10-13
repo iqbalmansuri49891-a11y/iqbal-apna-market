@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iqbal Apna Market</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+    }
+    header {
+      background: #087f5b;
+      color: white;
+      padding: 20px 14px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 8px; font-size: 25px; }
+    header p { margin: 0; }
+    .search {
+      width: 92%;
+      padding: 13px;
+      margin: 15px 4%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    h2 { margin: 12px; font-size: 20px; }
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px;
+    }
+    .category {
+      background: white;
+      border-radius: 8px;
+      padding: 12px 8px;
+      flex: 1 1 40%;
+      text-align: center;
+      box-shadow: 0 1px 4px #ddd;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 12px;
+    }
+    .product {
+      background: white;
+      padding: 14px 10px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 1px 4px #ddd;
+    }
+    .emoji { font-size: 38px; }
+    .price { color: #087f5b; font-weight: bold; }
+    button {
+      background: #087f5b;
+      color: white;
+      border: 0;
+      border-radius: 6px;
+      padding: 10px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #e5e7eb;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛍️ Iqbal Apna Market</h1>
+    <p>Apni dukaan, apna bazaar!</p>
+    <p>Har zaroorat ka samaan ek jagah</p>
+  </header>
+
+  <input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="Product ya category khojein..."
+    oninput="searchProducts()"
+  >
+
+  <h2>📦 Categories</h2>
+  <section class="categories">
+    <div class="category">💡 Electrical</div>
+    <div class="category">🔧 Hardware & Tools</div>
+    <div class="category">🚿 Plumbing</div>
+    <div class="category">📱 Mobile & Electronics</div>
+    <div class="category">👕 Clothes & Fashion</div>
+    <div class="category">👟 Shoes</div>
+    <div class="category">🪑 Furniture</div>
+    <div class="category">🏗️ Building Materials</div>
+    <div class="category">🛒 Grocery & Home</div>
+    <div class="category">🎁 Other Products</div>
+  </section>
+
+  <h2>⭐ Sample Products</h2>
+  <section class="products" id="products">
+    <div class="product">
+      <div class="emoji">💡</div>
+      <h3>LED Bulb</h3>
+      <p class="price">₹100</p>
+      <button onclick="alert('Order feature jald aayega!')">
+        View Product
+      </button>
+    </div>
+    <div class="product">
+      <div class="emoji">🔧</div>
+      <h3>Tool Set</h3>
+      <p class="price">₹500</p>
+      <button onclick="alert('Order feature jald aayega!')">
+        View Product
+      </button>
+    </div>
+    <div class="product">
+      <div class="emoji">🚿</div>
+      <h3>Water Tap</h3>
+      <p class="price">₹250</p>
+      <button onclick="alert('Order feature jald aayega!')">
+        View Product
+      </button>
+    </div>
+    <div class="product">
+      <div class="emoji">👕</div>
+      <h3>Shirt</h3>
+      <p class="price">₹400</p>
+      <button onclick="alert('Order feature jald aayega!')">
+        View Product
+      </button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Iqbal Apna Market</p>
+    <p>Seller commission: 5% per eligible completed order</p>
+    <p>Abhi demo website hai — real orders aur payments abhi set nahi hain.</p>
+  </footer>
+
+  <script>
+    function searchProducts() {
+      const query = document.getElementById("search")
+        .value.toLowerCase();
+
+      document.querySelectorAll(".product").forEach(product => {
+        product.style.display =
+          product.innerText.toLowerCase().includes(query)
+            ? ""
+            : "none";
+      });
+    }
+  </script>
+</body>
+</html>
